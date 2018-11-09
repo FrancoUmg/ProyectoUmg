@@ -1,0 +1,53 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title>Registro</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding class="fondo-fourth">
+  <form [formGroup]="registroForm" (submit)="resgistro()" class="register_form" novalidate>
+    <ion-list>
+      <ion-item>
+        <ion-label floating>Nombre</ion-label>
+        <ion-input type="text" formControlName="nombre"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label floating>Apellido</ion-label>
+        <ion-input type="text" formControlName="apellido"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label floating>Correo electronico</ion-label>
+        <ion-input type="email" formControlName="correo_electronico"></ion-input>
+      </ion-item>
+      <div *ngIf="registroForm.get('correo_electronico').errors && registroForm.get('correo_electronico').dirty">
+          <p *ngIf="registroForm.get('correo_electronico').hasError('correo_electronico')" class="error">
+              El correo electronico indicado no es valido.
+          </p>
+      </div>
+      <ion-item>
+        <ion-label floating>fecha_nacimiento</ion-label>
+        <ion-datetime displayFormat="DD/MM/YYYY" formControlName="fecha_nacimiento" pickerFormat="DD MM YYYY"></ion-datetime>
+      </ion-item>
+      <ion-item>
+        <ion-label floating>Telefono</ion-label>
+        <ion-input type="number" formControlName="telefono"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label floating>Contraseña</ion-label>
+        <ion-input type="password" formControlName="constrasena"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label floating>Confirmar Contraseña</ion-label>
+        <ion-input type="password" formControlName="confirm_contrasena"></ion-input>
+      </ion-item>
+      <div *ngIf="registroForm.controls.confirm_contrasena.touched && registroForm.hasError('mismatchedPasswords') && registroForm.controls.constrasena.valid">
+          <p class="error">
+             Las contraseñas no son iguales
+          </p>
+      </div>
+    </ion-list>
+    <div class="flex-center">
+      <button ion-button color="primary" block [disabled]="!registroForm.valid">Registrar</button>
+    </div>
+  </form>
+</ion-content>

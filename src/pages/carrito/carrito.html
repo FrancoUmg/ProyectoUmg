@@ -1,0 +1,18 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Carrito</ion-title>
+    <ion-buttons end>
+        <button ion-button icon-only (click)="abirCarrito()">
+            <ion-icon name="cart"></ion-icon>
+            {{carritoContador}}
+        </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="fondo-fourth">
+  <producto-component [productos]="productos" (agregar)="agregarProductoCarrito($event)"></producto-component>
+</ion-content>

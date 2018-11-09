@@ -1,0 +1,32 @@
+<ion-header>
+    <ion-navbar color="primary">
+        <ion-title>
+            Realizar Pedido
+        </ion-title>
+      </ion-navbar>
+  </ion-header>
+  <ion-content class="fondo-fourth">
+      <form class="register_form">
+          <ion-list>
+            <ion-item>
+              <ion-label floating>Nombre del pedido</ion-label>
+              <ion-input type="text" name="nombre_pedido" [(ngModel)]="datosPedido.nombre_pedido"></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-label floating>Fecha de entrega</ion-label>
+              <ion-datetime displayFormat="DD/MM/YYYY" name="fecha_entrega" [(ngModel)]="datosPedido.fecha_entrega" pickerFormat="DD MM YYYY">
+              </ion-datetime>
+            </ion-item>
+            <ion-item>
+              <ion-label floating>Precio del pedido</ion-label>
+              <ion-input type="text" [value]="datosPedido.precio_pedido | currency: 'Q'" disabled="true"></ion-input>
+            </ion-item>
+          </ion-list>
+          <div class="flex-center">
+            <button ion-button color="primary" block (click)="hacerPedido(datosPedido)">Hacer Pedido</button>
+          </div>
+      </form>
+  </ion-content>
+
+  <ion-footer>
+  </ion-footer>

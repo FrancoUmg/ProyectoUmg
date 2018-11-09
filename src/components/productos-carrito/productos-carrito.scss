@@ -1,0 +1,26 @@
+productos-carrito {
+
+  ion-list{
+    ion-item{
+      ion-label{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .content-contador{
+          width: 30%;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          background: color($colors,fourth,base)
+        }
+      }
+    }
+  }
+
+  .total-pedido{
+    display: flex;
+    justify-content: space-between;
+    padding: 0 16px;
+  }
+}

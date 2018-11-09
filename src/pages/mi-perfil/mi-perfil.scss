@@ -1,0 +1,12 @@
+page-mi-perfil {
+
+  .perfil-foto{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 16px;
+    img{
+      width: 10em;
+    }
+  }
+}

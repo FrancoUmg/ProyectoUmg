@@ -1,0 +1,40 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Mi Perfil</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content class="fondo-fourth">
+  <div class="perfil-foto">
+    <img [src]="datosPerfil.foto" *ngIf="datosPerfil.foto">
+    <img src="./assets/imgs/usuario/user.png" *ngIf="!datosPerfil.foto">
+  </div>
+  <form class="register_form">
+      <ion-list>
+        <ion-item>
+          <ion-label floating>Correo electronico</ion-label>
+          <ion-input type="email" name="correo_electronico" [(ngModel)]="datosPerfil.correo_electronico"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label floating>Telefono</ion-label>
+          <ion-input type="number" name="telefono" [(ngModel)]="datosPerfil.telefono"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label floating>Correo electronico</ion-label>
+          <ion-input type="text" name="direccion" [(ngModel)]="datosPerfil.direccion"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label floating>Fecha de nacimiento</ion-label>
+          <ion-datetime displayFormat="DD/MM/YYYY" name="fecha_nacimiento" [(ngModel)]="datosPerfil.fecha_nacimiento" pickerFormat="DD MM YYYY">
+          </ion-datetime>
+        </ion-item>
+      </ion-list>
+      <div class="flex-center">
+        <button ion-button color="primary" block (click)="editarPerfil(datosPedido)">Editar Perfil</button>
+      </div>
+  </form>
+</ion-content>

@@ -1,0 +1,23 @@
+<ion-grid>
+  <ion-row>
+    <ion-col  *ngFor="let producto of productos" col-6>
+      <ion-card >
+        <img [src]="producto.imagen"/>
+        <ion-card-content>
+          <ion-card-title>
+            <h4>
+              {{producto.nombre}}
+            </h4>
+            <h6>
+              {{producto.costo | currency: 'Q'}}
+            </h6>
+          </ion-card-title>
+          <button ion-button icon-start (click)="tapProducto(producto)">
+            <ion-icon name="add"></ion-icon>
+            Agregar
+          </button>
+        </ion-card-content>
+      </ion-card>
+      </ion-col>
+    </ion-row>
+</ion-grid>

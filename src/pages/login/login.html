@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title>login</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding class="fondo-fourth">
+  <ion-list>
+    <ion-item>
+      <ion-label floating>Correo electronico</ion-label>
+      <ion-input type="email" [(ngModel)]="dataLogin.email"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>Password</ion-label>
+      <ion-input type="password" [(ngModel)]="dataLogin.password"></ion-input>
+    </ion-item>
+
+  </ion-list>
+  <div class="flex-center">
+    <button ion-button color="primary" block (click)="doLogin(dataLogin)">Iniciar Sesion</button>
+  </div>
+</ion-content>
