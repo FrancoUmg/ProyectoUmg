@@ -13,11 +13,13 @@ export class CarritoProvider extends ApiProvider{
     super(http)
   }
 
+  // setera o guarda los productos en la base de datos interna
   async setStoreProductoCarrito(productos:Array<any>) {
     await this.storage.set('my-carrito',productos)
     return productos;
   }
 
+  // obtener productos de la base de datos interna
   async getStoreProductosCarrito() {
     let productos = await this.storage.get('my-carrito');
     if(productos){
@@ -28,6 +30,7 @@ export class CarritoProvider extends ApiProvider{
     }
   }
 
+  // guardar producto en el carrito si no existe
   async guardarProductoCarrito(productoNuevo) {
     let productos = await this.getStoreProductosCarrito();
 

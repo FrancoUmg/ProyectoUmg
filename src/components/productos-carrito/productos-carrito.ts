@@ -29,6 +29,7 @@ export class ProductosCarritoComponent {
     this.viewCtrl.dismiss()
   }
 
+  //obtener productos carrito
   getProductosCarrito(){
     this.carritoProvider.getStoreProductosCarrito().then((productos) => {
       console.log('producots', productos)
@@ -42,6 +43,7 @@ export class ProductosCarritoComponent {
     })
   }
 
+  // seteral el valor del precio del pedido
   setPreciPedido(productos) {
     this.precioPedido = productos.reduce( (contador, producto) => {
       contador += producto.costo * producto.pedido;
@@ -51,11 +53,13 @@ export class ProductosCarritoComponent {
 
   }
 
+  //disminuir el numero del pedido por producto
   disminuirPedido(producto){
     producto.pedido > 1 ? producto.pedido-- : null;
     this.setPreciPedido(this.productos)
   }
 
+  //incrementar el numero del pedido por producto
   incrementarPedido(producto){
     producto.pedido++;
     this.setPreciPedido(this.productos)

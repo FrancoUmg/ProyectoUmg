@@ -12,7 +12,9 @@ import { AppAlertsProvider } from '../../providers/app-alerts/app-alerts';
 })
 export class CarritoPage {
 
+  //propiedad para listado de productos
   productos: Array<Producto>
+  //contador para llevar el numero de productos agregados al carrito
   carritoContador: number;
   constructor(
     public navCtrl: NavController,
@@ -31,17 +33,20 @@ export class CarritoPage {
     this.setContadorCarrito();
   }
 
+  //abrir pagina de listado de carrito agregado
   abirCarrito(){
     this.navCtrl.push(ProductosCarritoComponent)
     // let modal = this.modalCtrl.create(ProductosCarritoComponent)
     // modal.present();
   }
 
+  //setear valor al carrito
   async setContadorCarrito() {
     let productos = await this.carritoProvider.getStoreProductosCarrito();
     this.carritoContador = productos.length;
   }
 
+  //agregar productos al carrito desde el componente carrito -- BUTTON +AGREGAR
   agregarProductoCarrito(producto) {
     console.log("rpdocut", producto)
     this.carritoProvider.guardarProductoCarrito(producto).then( (seIngreso) => {
@@ -56,6 +61,7 @@ export class CarritoPage {
     })
   }
 
+  //obtener productos en memoria
   getProductos() {
     this.productos = [
       {
